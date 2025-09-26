@@ -8,6 +8,10 @@
 
 # Index — Références Systèmes & Contacts
 
-## #001 — contecter en cas de col de telefon à l'interne 
-- first contact name : manager MLA
-- second contact name : CEO CNI
+## #001 — Contacts internes en cas de perte ou vol de téléphone
+- Premier contact : **Chef de Projet Sécurité (CP)**
+- Second contact : **Responsable PMI**
+
+## #002 — Référence externe : Pré-plainte en ligne
+Structure adaptée de la plateforme officielle :  
+<https://www.service-public.fr/particuliers/vosdroits/F1435>
