@@ -1,0 +1,56 @@
+{
+  "properties": {
+    "policyType": "Custom",
+    "mode": "All",
+    "metadata": {
+      "createdBy": "b16b4351-c01d-4e45-9532-0a8b5ea49fe4",
+      "createdOn": "2025-10-20T14:25:31.8388471Z",
+      "updatedBy": "b16b4351-c01d-4e45-9532-0a8b5ea49fe4",
+      "updatedOn": "2025-10-20T15:20:26.3970525Z"
+    },
+    "version": "1.0.0",
+    "policyRule": {
+      "if": {
+        "allOf": [
+          {
+            "field": "type",
+            "equals": "Microsoft.Web/sites"
+          },
+          {
+            "anyOf": [
+              {
+                "field": "Microsoft.Web/sites/httpsOnly",
+                "equals": false
+              },
+              {
+                "field": "Microsoft.Web/sites/siteConfig.ftpsState",
+                "notEquals": "FtpsOnly"
+              },
+              {
+                "field": "Microsoft.Web/sites/siteConfig.minTlsVersion",
+                "notEquals": "1.2"
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    },
+    "versions": [
+      "1.0.0"
+    ]
+  },
+  "id": "/subscriptions/d2eebf7f-7b6f-4b87-98d5-ac50a5e701da/providers/Microsoft.Authorization/policyDefinitions/Artifact-CPL-transmission",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "Artifact-CPL-transmission",
+  "systemData": {
+    "createdBy": "xxxxxxx@gmail.com",
+    "createdByType": "User",
+    "createdAt": "2025-10-20T14:25:31.8102682Z",
+    "lastModifiedBy": "xxxxxxx@gmail.com",
+    "lastModifiedByType": "User",
+    "lastModifiedAt": "2025-10-20T15:20:26.3746281Z"
+  }
+}
