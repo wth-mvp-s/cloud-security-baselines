@@ -2,6 +2,7 @@
 
 Trzy gotowe moduły bezpieczeństwa oparte na Azure Policy i RGPD Art. 32:
 
+
 ### 1. Transmission Security Baseline  
    - HTTPS only, FTPS only, TLS ≥ 1.2 dla App Service.
 
