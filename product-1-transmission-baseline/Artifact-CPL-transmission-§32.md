@@ -46,7 +46,7 @@ Article 32 – Security of processing: ensures encryption in transit (confidenti
 
 
 Problem → brak jednolitego wymuszenia HTTPS/TLS ≥ 1.2/FTPS Only
-Artefakt → LVX-SEC-POLICY-LOCKDOWN-APP-SERVICE.json
+Artefakt → Artifact-CPL-transmission-§32.json
 
 § Artykol RODO / GDPR
 

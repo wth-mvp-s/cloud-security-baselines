@@ -4,10 +4,15 @@ representing an immediate response to an existing use case within the company co
 
 # why
 problem description
+
 # how
 solution
-
 	categorized as described in index-naming-schema.md
 	structured as described here
 	idempotent when applicable
-	includes definition of Done: not for KISS
+	includes definition of Done if aplicable
+
+# RGPD article correspondance
+# policy json or id if azure default
+# test ps1
+# proof png
