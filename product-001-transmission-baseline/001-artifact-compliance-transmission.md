@@ -13,9 +13,9 @@ to prevent :
 - accidental re-enable of HTTP or plain FTP
 - data in transit exposure
 
-# How 
+# HOW
 
-pwsh```
+```pwsh
 
 az account list --output table
 
@@ -39,6 +39,7 @@ az policy assignment create `
   --name "Artifact-CPL-transmission-assignment" `
   --policy "/subscriptions/$subId/providers/Microsoft.Authorization/policyDefinitions/AppService-Lockdown" `
   --scope "/subscriptions/$subId"
+```
 
 # RGPD 
  → CNIL / RGPD Article 32 breach risk
