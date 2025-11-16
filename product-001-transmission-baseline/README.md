@@ -13,9 +13,4 @@ Efekt: każdy webapp z httpOnly=false → RequestDisallowedByPolicy.
 
 
 
-RGPD Art:
-Article 32 – Security of processing
-Article 5(1)(e) – Storage limitation (personal data shall be kept no longer than necessary but long enough for accountability)
-
-> **Business value:**<br>- Redukcja ryzyka wycieku danych w tranzycie.<br>- Oszczędność czasu na audycie: polityka centralna zamiast ręcznego sprawdzania każdej aplikacji.
 

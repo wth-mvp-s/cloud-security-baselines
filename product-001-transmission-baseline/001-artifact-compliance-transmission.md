@@ -1,20 +1,24 @@
-# WHAT
+[return to main page](../README.md)
 
-hardening transport security rules
-- httpsOnly
-- ftpsState
-- minTlsVersion
+# Product 1 – Transmission Security Baseline Artifact prevent: 
+1. inconsistent security baselines 
+2. downgrades to insecure TLS
+3. accidental re-enable of HTTP or plain FTP
+4. data in transit exposure
 
-# WHY
+> **Business value:**<br>- Redukcja ryzyka wycieku danych w tranzycie.<br>- Oszczędność czasu na audycie: polityka centralna zamiast ręcznego sprawdzania każdej aplikacji.
 
-to prevent :
-- inconsistent security baselines 
-- downgrades to insecure TLS
-- accidental re-enable of HTTP or plain FTP
-- data in transit exposure
+# Artifact policies hardening transmission security operate across three layers:
+- HTTPS
+- FTPS
+- TLS
+
+# Artefact implements GDPR Articles 5 and 32.
+
+  - Article 5(1)(e) – Storage limitation (personal data shall be kept no longer than necessary but long enough for accountability)
+  - Article 32 – Security of processing
 
 # HOW
-
 ```pwsh
 
 az account list --output table
@@ -40,32 +44,14 @@ az policy assignment create `
   --policy "/subscriptions/$subId/providers/Microsoft.Authorization/policyDefinitions/AppService-Lockdown" `
   --scope "/subscriptions/$subId"
 ```
-
-# RGPD 
- → CNIL / RGPD Article 32 breach risk
-Article 32 – Security of processing: ensures encryption in transit (confidentiality & integrity).
-
-
-Problem → brak jednolitego wymuszenia HTTPS/TLS ≥ 1.2/FTPS Only
-Artefakt → Artifact-CPL-transmission-§32.json
-
-§ Artykol RODO / GDPR
-
-Artykuł 32 — Bezpieczeństwo przetwarzania
-Administrator i podmiot przetwarzający wdrażają odpowiednie środki techniczne i organizacyjne, aby zapewnić stopień bezpieczeństwa odpowiadający ryzyku, w tym m.in.
-— lit. a) pseudonimizację i szyfrowanie danych osobowych,
-— lit. b) zdolność do zapewnienia poufności, integralności, dostępności i odporności systemów i usług przetwarzania.
-
-§ / € - bezposrednie przelozenie artefaktu	wedlog Artykulu 32: 
-Wymuszenie HTTPS	art. 32 ust. 1 lit. b	zapewnienie poufności i integralności transmisji danych
-Minimalna wersja TLS ≥ 1.2	art. 32 ust. 1 lit. b	redukcja ryzyka przechwycenia lub modyfikacji danych
-FTPS Only	art. 32 ust. 1 lit. a + b	wymuszenie szyfrowanego kanału dla transferu plików
-Centralne policy + enforce	art. 32 ust. 2	dowód zastosowania środków technicznych adekwatnych do ryzyka
-
-∑ - prove of done 
-
+# Evidence of Completion
+```md
 $rg="rg-test_2010.2025.1149";$plan="asp-test";$app="app-test-$((New-Guid).Guid.Substring(0,8))"
 az group create -n $rg -l westeurope
 az appservice plan create -n $plan -g $rg --sku F1 --is-linux
 az webapp create -n $app -g $rg -p $plan --runtime "DOTNET:8"
 az webapp update -g $rg -n $app --set httpsOnly=false   # expect RequestDisallowedByPolicy
+```
+
+
+[go to next module](../product-002-keyvault-baseline/002.artifact-compliance-key-vault.md)

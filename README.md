@@ -1,8 +1,8 @@
-# Security Baselines Products
+# Security Baselines Artifacts
 
 Trzy gotowe moduły bezpieczeństwa oparte na Azure Policy i RGPD Art. 32:
 
-[Product 1 – Transmission Security Baseline:](./product-001-transmission-baseline/001-artifact-compliance-transmission.md)
+[Product 1 – Transmission Security Baseline Artifact:](./product-001-transmission-baseline/001-artifact-compliance-transmission.md)
 HTTPS only, FTPS only, TLS ≥ 1.2 dla App Service. 
 
 [Product 2 - Key Vault Resilience & Isolation Baseline:](./product-002-keyvault-baseline/002.artifact-compliance-key-vault.md)
@@ -12,28 +12,28 @@ Soft delete 90 dni, purge protection, private endpoint only.
 NSG wymagane, brak publicznych IP, flow logs + Network Watcher.
 
 
-### general structure
+### General structure
 
-1. what
+1. what<br>
 An artifact provides a clearly defined solution to a specific problem,
 representing an immediate response to an existing use case within the company context.
 
-2. why
+2. why<br>
 problem description
 
 3. how
-- solution implementation instruction
-- idempotent when applicable
+   - solution implementation instruction
+   - idempotent when applicable
 
 4. RGPD article correspondance
 5. test ps1
-6. proof png
+6. Evidence of Completion png
 7. Business value
 
-### Artifacts Naming pattern:
+### Artifacts Naming pattern
 [ORDER-NUMBER]-[PREFIX]-[DOMAIN]-[TOPIC].[EXTENSION]
 
-### tools
+### Tools
 
 - VC extension: Azure Policy - Azure resource, policy, and alias viewer
    Installation Identifier: azurepolicy.azurepolicyextension

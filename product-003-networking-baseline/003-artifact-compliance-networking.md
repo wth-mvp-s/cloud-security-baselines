@@ -1,3 +1,5 @@
+[return to main page](../README.md)
+
 # Networking perimeter:
     minimalizacja ekspozycji ruchu
     brak wejścia z Internetu
