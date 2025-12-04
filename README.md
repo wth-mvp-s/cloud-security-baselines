@@ -14,28 +14,24 @@ NSG wymagane, brak publicznych IP, flow logs + Network Watcher.
 
 ### General structure
 
-1. what<br>
+- what<br>
 An artifact provides a clearly defined solution to a specific problem,
 representing an immediate response to an existing use case within the company context.
 
-2. why<br>
+- why<br>
 problem description
 
-3. how
+- how
    - solution implementation instruction
    - idempotent when applicable
 
-4. RGPD article correspondance
-5. test ps1
-6. Evidence of Completion png
-7. Business value
+- RGPD article correspondance
+- test ps1
+- Evidence of Completion png
+- Business value
 
 ### Artifacts Naming pattern
 [ORDER-NUMBER]-[PREFIX]-[DOMAIN]-[TOPIC].[EXTENSION]
 
-### Tools
 
-- VC extension: Azure Policy - Azure resource, policy, and alias viewer
-   Installation Identifier: azurepolicy.azurepolicyextension
-   Version: 0.2.5
-   Published: 5 years ago
+

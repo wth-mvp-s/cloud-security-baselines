@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "displayName": "001-artifact-compliance-transmission",
+    "description": "httpsOnly, FtpsOnly, minTlsVersion",
+    "mode": "All",
+    "policyRule": {
+      "if": {
+    "allOf": [
+      { "field": "type", "equals": "Microsoft.Web/sites" },
+      { "anyOf": [
+        { "field": "Microsoft.Web/sites/httpsOnly", "equals": false },
+        { "field": "Microsoft.Web/sites/siteConfig.ftpsState", "notEquals": "FtpsOnly" },
+        {
+          "field": "Microsoft.Web/sites/siteConfig.minTlsVersion",
+          "greaterOrEquals": 3
+        }
+      ]}
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  }
+}

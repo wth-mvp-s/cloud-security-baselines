@@ -32,19 +32,68 @@ az account list --output table
 
 
 $subId = az account show --query id -o tsv
+$subId
+# insert from azure console
+code 001-artifact-compliance-transmission-audit.json
+cat 001-artifact-compliance-transmission-audit.json
 
 az policy definition create `
-  --name "Artifact-CPL-transmission" `
-  --rules "/home/lt/_projects/security-audit-runbooks/artifacts/Artifact-CPL-transmission-§32.json" `
+  --name "001-artifact-compliance-transmission-audit" `
+  --rules "./001-artifact-compliance-transmission-audit.json" `
   --mode All `
   --subscription $subId
 
 az policy assignment create `
-  --name "Artifact-CPL-transmission-assignment" `
-  --policy "/subscriptions/$subId/providers/Microsoft.Authorization/policyDefinitions/AppService-Lockdown" `
+  --name "001-artifact-compliance-transmission-audit" `
+  --policy "/subscriptions/$subId/providers/Microsoft.Authorization/policyDefinitions/001-artifact-compliance-transmission-audit" `
   --scope "/subscriptions/$subId"
+
 ```
 # Evidence of Completion
+(The screenshot + short explanation ) 
+
+A non-compliant resource was intentionally created (???).
+The assigned policy evaluated the resource and reported it as NonCompliant.
+The screenshot below shows the failed rule and actual values detected.
+This confirms the policy logic and the assignment are functioning correctly.
+
+# resource creation command
+```bash
+OrderNum=0077002
+rg="MyResourceGroup-$OrderNum"
+planName="MyPlan-$OrderNum"
+WebAppName="MyWebApp-$OrderNum"
+
+az group create \
+  --name $rg \
+  --location westeurope
+
+az appservice plan create \
+  --resource-group $rg \
+  --name $planName \
+  --sku F1
+
+az webapp create \
+  --name $WebAppName \
+  --resource-group $rg \
+  --plan $planName
+
+az webapp config set \
+  --name $WebAppName \
+  --resource-group $rg \
+  --min-tls-version 1.0
+```
+# Current issue: 
+some scope diffirence, policy do not see the resource created here, am I dont know yet why!!!
+
+# delete old rg
+```bash delete rg 
+az group delete \
+  --name OrderNum \
+  --yes \
+  --no-wait
+```
+
 ```md
 $rg="rg-test_2010.2025.1149";$plan="asp-test";$app="app-test-$((New-Guid).Guid.Substring(0,8))"
 az group create -n $rg -l westeurope
@@ -55,3 +104,7 @@ az webapp update -g $rg -n $app --set httpsOnly=false   # expect RequestDisallow
 
 
 [go to next module](../product-002-keyvault-baseline/002.artifact-compliance-key-vault.md)
+
+
+checklist
+- [ ] co jest ewidence de completiness, czy jak to by sie tam mialo nazywac?  
