@@ -12,7 +12,7 @@
         { "field": "Microsoft.Web/sites/siteConfig.ftpsState", "notEquals": "FtpsOnly" },
         {
           "field": "Microsoft.Web/sites/siteConfig.minTlsVersion",
-          "greaterOrEquals": 3
+          "less": 1.2
         }
       ]}
         ]
