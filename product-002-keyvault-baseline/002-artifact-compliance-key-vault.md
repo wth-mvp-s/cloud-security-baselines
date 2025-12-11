@@ -23,7 +23,7 @@ rm -f terraform.tfstate.backup
 
 az login
 terraform init
-terraform apply   -var "order_num=0077015"   -var "subscription_id=$(az account show --query id -o tsv)"
+terraform apply   -var "order_num=0078005"   -var "subscription_id=$(az account show --query id -o tsv)"
 
 ```
 Policy definition & assignement
@@ -35,30 +35,32 @@ az account list --output table
 [//]az account set --subscription <SUBSCRIPTION_ID>
 [//]file path = /home/lt/_projects/security-audit-runbooks/artifacts
 
-$subId = az account show --query id -o tsv
-$subId
+$subId = az account show --query id -o tsv`
+$subId`
+subId=$(az account show --query id -o tsv)\
+echo $subId\
 
-code 002.artifact-compliance-key-vault-audit.json
-cat 002.artifact-compliance-key-vault-audit.json
+code 002-artifact-compliance-key-vault-deny.json
+cat 002-artifact-compliance-key-vault-deny.json
 
-az policy definition create `
-  --name "002.artifact-compliance-key-vault-audit" `
-  --rules "./002.artifact-compliance-key-vault-audit.json" `
-  --mode All `
+az policy definition create \
+  --name "002-artifact-compliance-key-vault-deny" \
+  --rules "./002-artifact-compliance-key-vault-deny.json" \
+  --mode All \
   --subscription $subId
 
-az policy assignment create `
-  --name "002.artifact-compliance-key-vault-audit" `
-  --policy "/subscriptions/$subId/providers/Microsoft.Authorization/policyDefinitions/002.artifact-compliance-key-vault-audit" `
-  --scope "/subscriptions/$subId/resourceGroups/MyResourceGroup-0078001"
+az policy assignment create \
+  --name "002-artifact-compliance-key-vault-deny" \
+  --policy "/subscriptions/$subId/providers/Microsoft.Authorization/policyDefinitions/002-artifact-compliance-key-vault-deny" \
+  --scope "/subscriptions/$subId/resourceGroups/MyResourceGroup-0078004"
 ```
 Policy resource evaluation and NonCompliance report.
 ```az cli 
-az policy state list -g "MyResourceGroup-0078001" --query "[?policyDefinitionName=='002.artifact-compliance-key-vault-audit']"
+az policy state list -g "MyResourceGroup-0078004" --query "[?policyDefinitionName=='002-artifact-compliance-key-vault-deny']"
 
-az policy state list -g "MyResourceGroup-0078001" --query "[].complianceState"
+az policy state list -g "MyResourceGroup-0078004" --query "[].complianceState"
 
-az policy state list -g "MyResourceGroup-0078001" \
+az policy state list -g "MyResourceGroup-0078004" \
   --query "sort_by(@, &timestamp)[-1].complianceState"
 ```
 

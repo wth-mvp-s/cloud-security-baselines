@@ -14,6 +14,7 @@ provider "azurerm" {
     subscription_id = var.subscription_id
   }
 
+data "azurerm_client_config" "current" {}
 
 resource "azurerm_resource_group" "rg" {
   name     = "MyResourceGroup-${var.order_num}"
@@ -43,27 +44,15 @@ resource "azurerm_linux_web_app" "app" {
   }
 }
 
-
 resource "azurerm_key_vault" "kv" {
-  name                        = "${var.app_name}${var.APP_ID_NUM}kv"
+  name                        = "kv${var.order_num}"
   location                    = azurerm_resource_group.rg.location
   resource_group_name         = azurerm_resource_group.rg.name
   tenant_id                   = data.azurerm_client_config.current.tenant_id
+
   sku_name                    = "standard"
   purge_protection_enabled    = false
-  soft_delete_retention_days = 30
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_client_config.current.object_id
+  soft_delete_retention_days  = 30
 
-    secret_permissions = [
-      "Set",
-      "Get",
-      "List"
-    ]
-  }
-
-  depends_on = [
-    azurerm_resource_group.rg
-  ]
+  public_network_access_enabled = true
 }
