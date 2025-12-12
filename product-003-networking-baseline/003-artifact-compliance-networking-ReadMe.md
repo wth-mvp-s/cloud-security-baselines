@@ -12,17 +12,17 @@
 
 # technical documentation
 ```azure
-- Network interfaces should not have public IPs
+1. Network interfaces should not have public IPs
 All network ports should be restricted on network security groups associated to your virtual machine
 
-- Subnets should be associated with a Network Security Group
+2. Subnets should be associated with a Network Security Group
 Gateway subnets should not be configured with a network security group 
 
--  Network Watcher should be enabled
+3. Network Watcher should be enabled
 Deploy network watcher when virtual networks are created
 Network Watcher flow logs should have traffic analytics enabled
 
--  Flow logs should be configured for every network security group
+4. Flow logs should be configured for every network security group
 Configure network security groups to enable traffic analytics
 Public IP addresses should have resource logs enabled for Azure DDoS Protection
 ```
