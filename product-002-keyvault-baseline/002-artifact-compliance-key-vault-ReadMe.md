@@ -23,7 +23,7 @@ rm -f terraform.tfstate.backup
 
 az login
 terraform init
-terraform apply   -var "order_num=0078005"   -var "subscription_id=$(az account show --query id -o tsv)"
+terraform apply   -var "order_num=0079001"   -var "subscription_id=$(az account show --query id -o tsv)"
 
 ```
 Policy definition & assignement

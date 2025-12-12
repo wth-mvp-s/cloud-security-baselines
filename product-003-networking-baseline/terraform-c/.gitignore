@@ -1,0 +1,17 @@
+# Terraform provider binaries and plugin cache
+.terraform/
+
+# Terraform state files (sensitive)
+*.tfstate
+*.tfstate.backup
+
+# Crash logs
+crash.log
+*.log
+
+# CLI configuration files
+.terraformrc
+terraform.rc
+
+# Ignore provider executables explicitly
+terraform-provider-*
