@@ -1,9 +1,8 @@
 [return to main page](../README.md)
 
-# Product 3 - Networking Baseline: oparty na politykach wbudowanych w Azure.
+# Product 3 – Networking Baseline: No workload is exposed to the Internet without explicit control, and every flow becomes investigable after an incident, enforced through Microsoft network standards.
 
-> **Business value:**<br>Product 3 reduces Internet-based attack vectors and enables faster incident investigation through native network telemetry.<br>The artifact mitigates these risks by enforcing Microsoft-built networking policies that address the risks of uncontrolled network exposure, unintended Internet access, and lack of traffic traceability, without relying on custom policy logic.<br>Szybsze dochodzenie po incydencie dzięki flow logs.
-
+Business value:<br>Product 3 reduces Internet-based attack vectors and accelerates incident investigation through native network telemetry, without relying on custom policy logic.
 
 
 
@@ -12,19 +11,19 @@
 
 # technical documentation
 ```azure
-1. Network interfaces should not have public IPs
-All network ports should be restricted on network security groups associated to your virtual machine
+1.a Network interfaces should not have public IPs
+    All network ports should be restricted on network security groups associated to your virtual machine
 
-2. Subnets should be associated with a Network Security Group
-Gateway subnets should not be configured with a network security group 
+1.b Subnets should be associated with a Network Security Group
+    Gateway subnets should not be configured with a network security group 
 
-3. Network Watcher should be enabled
-Deploy network watcher when virtual networks are created
-Network Watcher flow logs should have traffic analytics enabled
+2.a Network Watcher should be enabled
+    Deploy network watcher when virtual networks are created
+    Network Watcher flow logs should have traffic analytics enabled
 
-4. Flow logs should be configured for every network security group
-Configure network security groups to enable traffic analytics
-Public IP addresses should have resource logs enabled for Azure DDoS Protection
+2.b. Flow logs should be configured for every network security group
+    Configure network security groups to enable traffic analytics
+    Public IP addresses should have resource logs enabled for Azure DDoS Protection
 ```
 
 ```tf 
