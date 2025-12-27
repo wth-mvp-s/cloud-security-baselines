@@ -2,13 +2,13 @@
 
 Trzy gotowe moduły bezpieczeństwa oparte na Azure Policy i RGPD Art. 32:
 
-[Product 1 – Transmission Security Baseline Artifact:](./product-001-transmission-baseline/001-artifact-compliance-transmission.md)
+[Product 1 – Transmission Security Baseline Artifact:](./product-001-transmission-baseline/README.md)
 HTTPS only, FTPS only, TLS ≥ 1.2 dla App Service. 
 
-[Product 2 - Key Vault Resilience & Isolation Baseline:](./product-002-keyvault-baseline/002.artifact-compliance-key-vault.md)
+[Product 2 - Key Vault Resilience & Isolation Baseline:](./product-002-keyvault-baseline/README.md)
 Soft delete 90 dni, purge protection, private endpoint only.
 
-[Product 3 - Networking Perimeter Baseline:](./product-003-networking-baseline/003-artifact-compliance-networking.md)
+[Product 3 - Networking Perimeter Baseline:](./product-003-networking-baseline/README.md)
 NSG wymagane, brak publicznych IP, flow logs + Network Watcher.
 
 

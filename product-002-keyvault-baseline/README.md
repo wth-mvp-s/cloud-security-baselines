@@ -1,3 +1,5 @@
+[//]: 002-artifact-compliance-key-vault-ReadMe
+
 [return to main page](../README.md)
 
 # Product 2 - Key Vault Resilience & Isolation Baseline
@@ -31,9 +33,9 @@ Policy definition & assignement
 
 az account list --output table
 
-[//]az login --tenant <TENANT_ID_OR_DOMAIN>
-[//]az account set --subscription <SUBSCRIPTION_ID>
-[//]file path = /home/lt/_projects/security-audit-runbooks/artifacts
+# az login --tenant <TENANT_ID_OR_DOMAIN>
+# az account set --subscription <SUBSCRIPTION_ID>
+# file path = /home/lt/_projects/security-audit-runbooks/artifacts
 
 $subId = az account show --query id -o tsv`
 $subId`
@@ -65,4 +67,4 @@ az policy state list -g "MyResourceGroup-0078004" \
 ```
 
 
-[go to next module](../product-003-networking-baseline/003-artifact-compliance-networking.md) 
+[go to next module](../product-003-networking-baseline/README.md) 

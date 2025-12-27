@@ -1,3 +1,5 @@
+[//]: 001-artifact-compliance-transmission-ReadMe
+
 [return to main page](../README.md)
 
 # Product 1 – Transmission Security Baseline
@@ -51,9 +53,9 @@ Policy definition & assignement
 
 az account list --output table
 
-[//]az login --tenant <TENANT_ID_OR_DOMAIN>
-[//]az account set --subscription <SUBSCRIPTION_ID>
-[//]file path = /home/lt/_projects/security-audit-runbooks/artifacts
+# az login --tenant <TENANT_ID_OR_DOMAIN>
+# az account set --subscription <SUBSCRIPTION_ID>
+# file path = /home/lt/_projects/security-audit-runbooks/artifacts
 
 $subId = az account show --query id -o tsv
 $subId
@@ -83,6 +85,6 @@ az policy state list -g "MyResourceGroup-0077008" \
 ```
 
 
-[go to next module](../product-002-keyvault-baseline/002.artifact-compliance-key-vault.md)
+[go to next module](../product-002-keyvault-baseline/README.md)
 
 
