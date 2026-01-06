@@ -1,6 +1,10 @@
 # Security Baselines Artifacts
 
-Trzy gotowe moduły bezpieczeństwa oparte na Azure Policy i RGPD Art. 32:
+
+The three Security Baseline artifacts bundle is designed to enable easy hardening of key security principle implementations.
+Following Azure Policy and GDPR requirements, each artifact covers implementation instructions, mapping to GDPR articles, testing methods, and evidence of completion.
+These artifacts are intended to serve as a valid audit tool while remaining simple to work with.
+
 
 [Product 1 – Transmission Security Baseline Artifact:](./product-001-transmission-baseline/README.md)
 HTTPS only, FTPS only, TLS ≥ 1.2 dla App Service. 
@@ -12,26 +16,16 @@ Soft delete 90 dni, purge protection, private endpoint only.
 NSG wymagane, brak publicznych IP, flow logs + Network Watcher.
 
 
-### General structure
+<!--
+General structure
 
-- what<br>
-An artifact provides a clearly defined solution to a specific problem,
-representing an immediate response to an existing use case within the company context.
-
-- why<br>
-problem description
-
+- business value
+- what
+- why
 - how
-   - solution implementation instruction
-   - idempotent when applicable
-
 - RGPD article correspondance
-- test ps1
-- Evidence of Completion png
-- Business value
+- test
+- evidence of completion
+- artifacts Naming pattern [ORDER-NUMBER]-[PREFIX]-[DOMAIN]-[TOPIC].[EXTENSION]
 
-### Artifacts Naming pattern
-[ORDER-NUMBER]-[PREFIX]-[DOMAIN]-[TOPIC].[EXTENSION]
-
-
-
+-->
