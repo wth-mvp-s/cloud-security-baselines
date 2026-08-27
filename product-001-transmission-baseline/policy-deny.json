@@ -1,0 +1,22 @@
+{
+  "if": {
+    "allOf": [
+      { "field": "type", "equals": "Microsoft.Web/sites" },
+      {
+        "anyOf": [
+          { "field": "Microsoft.Web/sites/httpsOnly", "equals": false },
+          { "field": "Microsoft.Web/sites/siteConfig.ftpsState", "notEquals": "FtpsOnly" },
+          {
+            "allOf": [
+              { "field": "Microsoft.Web/sites/siteConfig.minTlsVersion", "exists": true },
+              { "field": "Microsoft.Web/sites/siteConfig.minTlsVersion", "less": "1.2" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "then": {
+    "effect": "deny"
+  }
+}
